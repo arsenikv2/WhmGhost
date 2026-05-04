@@ -46,7 +46,7 @@ Hiçbir harici bağımlılık gerektirmez; Python 3.6+ ile çalışır.
 
 ```bash
 # Depoyu klonlayın
-git clone https://github.com/arsenik/whm-ghost.git
+git clone https://github.com/arsenikv2/whm_ghost.git
 cd whm-ghost
 
 # (Opsiyonel) Sanal ortam oluşturun
