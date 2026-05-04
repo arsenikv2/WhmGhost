@@ -56,4 +56,3 @@ source venv/bin/activate
 # Aracı çalıştırın
 python3 whm_ghost.py -u https://hedef.com:2087
 
-<img width="1376" height="4404" alt="deepseek_mermaid_20260504_89a4cc (1)" src="https://github.com/user-attachments/assets/86eee657-fb19-4de1-8358-6f23f5260186" />
