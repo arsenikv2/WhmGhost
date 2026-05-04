@@ -56,15 +56,4 @@ source venv/bin/activate
 # Aracı çalıştırın
 python3 whm_ghost.py -u https://hedef.com:2087
 
-graph TD
-    A[🎯 Hedef URL] --> B{WHM Ghost v1 Auto}
-    B --> C[Stage 0: Canonical Host Keşfi]
-    C --> D[Stage 1: Preauth Session Al]
-    D --> E[Stage 2: CRLF Enjeksiyon]
-    E --> F[Stage 3: Cache Propagate]
-    F --> G[Stage 4: Root Erişim Doğrula]
-    G --> H{Doğrulandı mı?}
-    H -->|Evet| I[🔍 Otomatik Keşif]
-    I --> J[📄 JSON Rapor]
-    J --> K[✅ Tamamlandı]
-    H -->|Hayır| L[❌ Hata Logu]
+<img width="1376" height="4404" alt="deepseek_mermaid_20260504_89a4cc (1)" src="https://github.com/user-attachments/assets/86eee657-fb19-4de1-8358-6f23f5260186" />
