@@ -46,15 +46,15 @@ Hiçbir harici bağımlılık gerektirmez; Python 3.6+ ile çalışır.
 
 ```bash
 # Depoyu klonlayın
-git clone https://github.com/arsenikv2/whm_ghost.git
-cd whm-ghost
+git clone https://github.com/arsenikv2/WhmGhost.git
+cd WhmGhost
 
 # (Opsiyonel) Sanal ortam oluşturun
 python3 -m venv venv
 source venv/bin/activate
 
 # Aracı çalıştırın
-python3 whm_ghost.py -u https://hedef.com:2087
+ python whm_ghost.py -u https://hedef.com:2087
 
 
 
