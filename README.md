@@ -1,10 +1,5 @@
-
 <p align="center">
-  <img src="https://media.giphy.com/media/3o7aD2saal6wwVXJ6g/giphy.gif" width="300" alt="Sonic GIF" />
-</p>
-
-<p align="center">
-  <i><b>“Sonic kadar hızlı, root'a bir adım!”</b></i>
+  <img src="https://c.tenor.com/12303175589018653718/tenor.gif" width="300" alt="Sonic" />
 </p>
 
 <h1 align="center">
@@ -23,25 +18,27 @@
   <img src="https://img.shields.io/badge/Exploit-CRYP%20Injection-critical?style=flat-square" />
 </p>
 
----
-
-## 🦔 Sonic Modunda Sömürü
-
-**WHM Ghost**, cPanel & WHM sunucularında bulunan **CVE-2026-41940**  
-kimlik doğrulama atlama zaafiyetini **(CVSS 10.0)** Sonic'in yüzük toplaması kadar hızlı ve sessizce sömüren otomatik bir pentest aracıdır.  
-Sadece hedef adresi verin; **4 aşamalı exploit zinciri** bir çırpıda çalışır,  
-ardından sistemi tarar ve size **root erişimi** sunar.
-
-> 💨 **“Hayalet gibi sız, Sonic gibi kaç.”**
-
 <br />
 
-## 🌪 Neden WHM Ghost?
+## 🦔 WHM Ghost – Sonic Hızında Root Erişimi
+
+**WHM Ghost**, cPanel ve WHM sunucularında bulunan **CVE-2026-41940**  
+kimlik doğrulama atlama zaafiyetini **(CVSS 10.0)** sömürmek için geliştirilmiş  
+**tam otomatik, sıfır bağımlılık** bir penetrasyon testi aracıdır.  
+Hedefi verin; dört aşamalı exploit zinciri **Sonic hızıyla** çalışsın,  
+ardından sistem bilgilerini toplasın, isterseniz interaktif bir root shell açsın.
+
+> 💨 **“Hayalet gibi sız, Sonic gibi kaç.”**  
+> 🧠 Geliştirici: **Arsenik**
+
+---
+
+## 🔥 Neden WHM Ghost?
 
 | Avantaj | Detay |
 |--------|--------|
 | 🚀 **Sonic Hızı** | Çoklu iş parçacığıyla yüzlerce hedefi aynı anda tarar |
-| 🧠 **Tam Otomatik** | 4 aşamalı zincir + keşif + rapor – tek tuşla |
+| 🧠 **Tam Otomatik** | 4 aşamalı zincir + keşif + rapor – tek komutla |
 | 🐍 **Sıfır Bağımlılık** | Python 3.6+ dışında hiçbir şey yüklemezsiniz |
 | 📡 **Pipeline Hazır** | Shodan, subfinder, httpx çıktılarını doğrudan boru ile alır |
 | 💬 **Zengin Açıklamalar** | Her aşama renkli log'larla canlı canlı anlatılır |
@@ -52,21 +49,30 @@ ardından sistemi tarar ve size **root erişimi** sunar.
 
 ## 🧩 CVE-2026-41940 Nedir?
 
-**Özet:**  
+### ⚠️ Zafiyet Özeti
+
 cPanel & WHM, oturum dosyasını kaydettikten **sonra** `filter_sessiondata()` fonksiyonunu çağırır.  
 Bu zamanlama hatası, **Authorization başlığına** CRLF karakterleri enjekte ederek oturum dosyasına **hasroot=1**, **tfa_verified=1** gibi yetkili alanlar yazılmasına izin verir.  
 Sonuç: **tam root erişimi**.
 
-**Etki:**  
-- Saldırgan, geçerli bir kullanıcı adı‑parola bilmeden WHM arayüzüne root olarak girebilir.
+### 💥 Etkileri
+
+- Geçerli bir kullanıcı adı‑parola bilmeden WHM arayüzüne root olarak girebilirsiniz.
 - API üzerinden tüm sunucuyu yönetebilir; hesap oluşturma, silme, şifre değiştirme, komut çalıştırma.
 - Arka kapı bırakıp kalıcı erişim sağlanabilir.
 
-**Etkilenen Sürümler:**  
-11.110.0.97, 11.118.0.63, 11.126.0.54, 11.132.0.29, 11.134.0.20, 11.136.0.5 öncesi tüm yapılar.
+### 📦 Etkilenen Sürümler
 
-**Düzeltme:**  
-`Session.pm` içinde `saveSession()` fonksiyonundaki filtreleme, **dosyaya yazmadan önce** yapılacak şekilde düzeltildi.
+| Sürüm Dalı | Yamalı Yapı |
+|------------|--------------|
+| 11.110 | < 11.110.0.97 |
+| 11.118 | < 11.118.0.63 |
+| 11.126 | < 11.126.0.54 |
+| 11.132 | < 11.132.0.29 |
+| 11.134 | < 11.134.0.20 |
+| 11.136 | < 11.136.0.5 |
+
+> ✅ Düzeltme: `Session.pm` içinde `saveSession()` fonksiyonundaki filtreleme, **dosyaya yazmadan önce** yapılacak şekilde düzeltildi.
 
 ---
 
