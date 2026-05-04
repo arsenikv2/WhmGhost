@@ -1,58 +1,47 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.6+-blue?logo=python" />
+  <img src="https://img.shields.io/badge/Sürüm-1.0%20Auto-orange" />
+  <img src="https://img.shields.io/badge/CVSS-10.0-red" />
+  <img src="https://img.shields.io/badge/Lisans-MIT-green" />
+  <img src="https://img.shields.io/badge/Geliştirici-Arsenik-black" />
+</p>
 
-> ⚡ **CVE-2026-41940** | cPanel & WHM Oturum Çalma → Root Erişimi  
-> 🧠 Geliştirici: **Arsenik**  
-> 🔥 **Tam Otomatik** · Modüler · Stdlib Tabanlı · Sıfır Bağımlılık  
+<h1 align="center">👻 WHM Ghost</h1>
+<h3 align="center">CVE-2026-41940 · cPanel & WHM Oturum Çalma → Root</h3>
+<p align="center"><b>Tam otomatik, sıfır bağımlılık, efsanevi hız.</b></p>
 
-[![Python](https://img.shields.io/badge/Python-3.6%2B-blue)](https://python.org)
-[![License](https://img.shields.io/badge/License-MIT-green)](#lisans)
-[![Version](https://img.shields.io/badge/Version-1.0%20Auto-orange)](#)
-[![CVSS](https://img.shields.io/badge/CVSS-10.0-red)](#)
+<br />
 
----
+## 🌌 Nedir?
 
-## 📖 Hakkında
+**WHM Ghost**, cPanel / WHM sunucularında **CVSS 10.0** olarak derecelendirilen  
+**CVE-2026-41940** kimlik doğrulama atlama açığını kullanan **pentest aracıdır**.  
+Hedefi verin; tüm saldırı zincirini (4 aşamalı), keşfi ve raporlamayı sizin için otomatik yapsın.
 
-**WHM Ghost**, cPanel/WHM sunucularında kritik bir kimlik doğrulama atlama (CVSS 10.0) zaafiyeti olan **CVE-2026-41940**'ı otomatik olarak sömüren, ardından otomatik keşif ve raporlama yapan bir **pentest aracıdır**.  
+> **“Hayalet gibi içeri sız, gölge bırakma.”**
 
-Hiçbir harici bağımlılık gerektirmez; Python 3.6+ ile çalışır.  
-**Sadece hedefi verin, gerisini Ghost halleder.** 👻
+<br />
 
----
+## ✨ Öne Çıkanlar
 
-## ✨ Özellikler
+- ⚡ **Tam Otomatik Pilot** – Exploit → Keşif → Rapor tek komutla
+- 🧩 **Modüler Yapı** – Sadece istediğin adımı çalıştır
+- 🐍 **Python 3.6+** – Hiçbir pip paketine ihtiyaç duymaz
+- 🌐 **WHM JSON‑API** – Hesap listeleme, komut çalıştırma, şifre değiştirme
+- 📡 **Pipeline Hazır** – Shodan, subfinder, httpx çıktıları ile beslenebilir
+- 🧵 **Multithreading** – 20+ hedefi aynı anda işleyin
+- 💻 **Root Shell** – Başarılı exploit sonrası interaktif terminal
+- 📂 **JSON Rapor** – Tüm bulguları yapılandırılmış olarak dışa aktar
 
-- 🔓 **4 Aşamalı Exploit Zinciri** (Preauth → CRLF Enjeksiyon → Propagate → Doğrulama)
-- 🤖 **Tam Otomatik Mod**: Exploit → Keşif → Rapor tek komutta
-- 📡 **WHM API Entegrasyonu**: Hesap listeleme, sunucu bilgisi, komut çalıştırma
-- 🕵️ **Sessiz Tarama**: Sadece başarılı hedefleri raporlar, log'lar renklidir
-- 📂 **JSON Çıktı**: Sonuçları dosyaya yaz, CI/CD'ye entegre et
-- 🧩 **Pipeline Desteği**: `subfinder`, `httpx`, `shodan` gibi araçlarla besle
-- 🌐 **SSL/TLS Yönetimi**: Kendi SSL konteksini oluşturur, sertifika hatalarını atlar
-- 💻 **İnteraktif Shell**: Root yetkisiyle komut çalıştırma, dosya okuma, şifre değiştirme
-- 🚀 **Multithreading**: Toplu taramalarda yüksek hız
+<br />
 
----
-
-## 📦 Gereksinimler
-
-- Python **3.6+** (önerilen 3.8+)
-- **pip paketi zorunlu değildir** – tüm kod `stdlib` ile yazılmıştır.
-
-> `requirements.txt` dosyası opsiyoneldir, sadece belgeleme amaçlıdır.
-
----
-
-## 🛠️ Kurulum
+## 📦 Kurulum
 
 ```bash
-# Depoyu klonlayın
+# Repoyu klonla
 git clone https://github.com/arsenik/whm-ghost.git
 cd whm-ghost
 
-# (Opsiyonel) Sanal ortam oluşturun
-python3 -m venv venv
-source venv/bin/activate
-
-# Aracı çalıştırın
+# Çalıştır (sanallaştırma opsiyonel)
 python3 whm_ghost.py -u https://hedef.com:2087
 
